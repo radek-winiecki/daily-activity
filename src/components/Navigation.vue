@@ -5,6 +5,11 @@
           <img class="w-14" src="../assets/images/dumbbell-light.png" alt="dumbbell-light">
           <h1 class="text-lg">Codzienna Aktywność Fizyczna</h1>
       </div>
+      <ul class="flex flex-1 justify-end gap-x-10">
+        <router-link class="cursor-pointer" :to="{ name: 'Home' }">Strona główna</router-link>
+        <router-link class="cursor-pointer" :to="{ name: '' }">Dodaj</router-link>
+        <router-link class="cursor-pointer" :to="{ name: 'Home' }">Zaloguj się</router-link>
+      </ul>
     </nav>
   </header>
 </template>
