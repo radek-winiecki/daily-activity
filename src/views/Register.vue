@@ -7,8 +7,9 @@
 
     <!-- Register -->
     <form
-     @submit.prevent="register"
-     class="p-8 flex flex-col bg-light-grey rounded-md shadow-lg">
+      @submit.prevent="register"
+      class="p-8 flex flex-col bg-light-grey rounded-md shadow-lg"
+    >
       <h1 class="text-3xl text-at-light-green mb-4">Rejestracja</h1>
 
       <div class="flex flex-col mb-2">
