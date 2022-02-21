@@ -5,14 +5,20 @@
 </template>
 
 <script>
+import { ref } from "vue";
+
 export default {
   name: "register",
   setup() {
     // Create data / vars
+    const email = ref(null);
+    const password = ref(null);
+    const confirmPassword = ref(null);
+    const errorMsg = ref(null);
 
     // Register function
 
-    return {};
+    return { email, password, confirmPassword, errorMsg };
   },
 };
 </script>
