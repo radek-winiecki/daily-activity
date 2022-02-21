@@ -19,6 +19,28 @@
           v-model="email"
         />
       </div>
+
+      <div class="flex flex-col mb-2">
+        <label for="password" class="mb-1 text-sm text-at-light-green">Hasło:</label>
+        <input 
+          type="password" 
+          required 
+          class="p-2 text-gray-500 focus:outline-none" 
+          id="password"
+          v-model="password"
+        />
+      </div>
+
+      <div class="flex flex-col mb-2">
+        <label for="confirmPassword" class="mb-1 text-sm text-at-light-green">Potwierdź hasło:</label>
+        <input 
+          type="password" 
+          required 
+          class="p-2 text-gray-500 focus:outline-none" 
+          id="confirmPassword"
+          v-model="confirmPassword"
+        />
+      </div>
     </form>
   </div>
 </template>
