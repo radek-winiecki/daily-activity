@@ -1,12 +1,20 @@
 <template>
-  <div></div>
+  <div>
+    <h1>create</h1>
+  </div>
 </template>
 
 <script>
+import { ref } from "vue";
 export default {
   name: "create",
   setup() {
     // Create data
+    const workoutName = ref("");
+    const workoutType = ref("select-workout");
+    const excercises = ref();
+    const statusMsg = ref(null);
+    const errorMsg = ref(null);
 
     // Add exercise
 
@@ -16,7 +24,7 @@ export default {
 
     // Create workout
 
-    return {};
+    return { workoutName, workoutType, excercises, statusMsg, errorMsg };
   },
 };
 </script>
