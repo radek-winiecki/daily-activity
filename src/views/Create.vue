@@ -126,6 +126,7 @@
           </div>
 
           <button
+            @click="addExercise"
             type="button"
             class="mt-20 py-2 px-6 rounded-sm self-start text-sm text-white bg-at-light-green duration-200 border-solid
             border-2 border-transparent hover:border-at-light-green hover:bg-white hover:text-at-light-green"
@@ -211,6 +212,7 @@
           </div>
 
           <button
+            @click="addExercise"
             type="button"
             class="mt-20 py-2 px-6 rounded-sm self-start text-sm text-white bg-at-light-green duration-200 border-solid
             border-2 border-transparent hover:border-at-light-green hover:bg-white hover:text-at-light-green"
@@ -298,6 +300,7 @@
           </div>
 
           <button
+            @click="addExercise"
             type="button"
             class="mt-20 py-2 px-6 rounded-sm self-start text-sm text-white bg-at-light-green duration-200 border-solid
             border-2 border-transparent hover:border-at-light-green hover:bg-white hover:text-at-light-green"
@@ -381,6 +384,7 @@
           </div>
 
           <button
+            @click="addExercise"
             type="button"
             class="mt-20 py-2 px-6 rounded-sm self-start text-sm text-white bg-at-light-green duration-200 border-solid
             border-2 border-transparent hover:border-at-light-green hover:bg-white hover:text-at-light-green"
@@ -469,6 +473,7 @@
           </div>
 
           <button
+            @click="addExercise"
             type="button"
             class="mt-20 py-2 px-6 rounded-sm self-start text-sm text-white bg-at-light-green duration-200 border-solid
             border-2 border-transparent hover:border-at-light-green hover:bg-white hover:text-at-light-green"
@@ -491,6 +496,7 @@
 
 <script>
 import { ref } from "vue";
+import { uid } from "uid";
 export default {
   name: "create",
   setup() {
@@ -502,6 +508,51 @@ export default {
     const errorMsg = ref(null);
 
     // Add exercise
+    const addExercise = () => {
+      if (workoutType.value === 'strength') {
+        exercises.value.push({
+          id: uid(),
+          exercise: "",
+          sets: "",
+          reps: "",
+          weight: "",
+        });
+
+        return;
+      } else if (workoutType.value === 'cardio') {
+        exercises.value.push({
+          id: uid(),
+          cardioType: "",
+          distance: "",
+          duration: "",
+          pace: "",
+        });
+      } else if (workoutType.value === 'cycling') {
+        exercises.value.push({
+          id: uid(),
+          cyclingType: "",
+          distance: "",
+          duration: "",
+          pulse: "",
+        });
+      } else if (workoutType.value === 'stretching') {
+        exercises.value.push({
+          id: uid(),
+          exercise: "",
+          sets: "",
+          reps: "",
+          weight: "",
+        });
+      } else if (workoutType.value === 'swimming') {
+        exercises.value.push({
+          id: uid(),
+          swimmingType: "",
+          distance: "",
+          duration: "",
+          pulse: "",
+        });
+      }
+    }
 
     // Delete exercise
 
@@ -509,7 +560,7 @@ export default {
 
     // Create workout
 
-    return { workoutName, workoutType, exercises, statusMsg, errorMsg };
+    return { workoutName, workoutType, exercises, statusMsg, errorMsg, addExercise };
   },
 };
 </script>
