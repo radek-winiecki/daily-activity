@@ -11,15 +11,15 @@
       <!-- Form -->
       <form class="flex flex-col gap-y-5 w-full">
 
-        <h1 class="text-2xl text-at-light-green">Privet!</h1>
+        <h1 class="text-2xl text-at-light-green">Zapisz Trening</h1>
 
         <!-- Workout Name -->
         <div class="flex flex-col">
           <label 
           for="workout-name" 
-          class="mb-1 text-sm text-at-light-green">jaki trening, Byczku?
+          class="mb-1 text-sm text-at-light-green">Nazwa Treningu
           </label>
-          
+
           <input
            type="text" 
            required 
@@ -27,6 +27,25 @@
            id="workout-name" 
            v-model="workoutName"
            >
+        </div>
+
+        <!-- Workout Type -->
+        <div class="flex flex-col">
+          <label 
+            for="workout-type" 
+            class="mb-1 text-sm text-at-light-green">Typ Treningu
+          </label>
+
+          <select 
+            id="workout-type" 
+            class="p-2 text-grey-500 focus:outline-none" 
+            required 
+            v-model="workoutType">
+
+            <option value="select-workout">Wybierz Trening</option>
+            <option value="strength">Trening Siłowy</option>
+            <option value="cardio">Kardio</option>
+          </select>
         </div>
       </form>
     </div>
