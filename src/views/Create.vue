@@ -143,7 +143,7 @@ export default {
     // Create data
     const workoutName = ref("");
     const workoutType = ref("select-workout");
-    const excercises = ref();
+    const exercises = ref([1]);
     const statusMsg = ref(null);
     const errorMsg = ref(null);
 
@@ -155,7 +155,7 @@ export default {
 
     // Create workout
 
-    return { workoutName, workoutType, excercises, statusMsg, errorMsg };
+    return { workoutName, workoutType, exercises, statusMsg, errorMsg };
   },
 };
 </script>
