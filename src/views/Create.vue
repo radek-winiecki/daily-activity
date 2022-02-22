@@ -47,6 +47,75 @@
             <option value="cardio">Kardio</option>
           </select>
         </div>
+
+        <!-- Strength Training Inputs -->
+        <div v-if="workoutType === 'strength'" class="flex flex-col gap-y-4">
+          <div 
+            class="flex flex-col gap-x-6 gap-y-2 relative md:flex-row" 
+            v-for="(item, index) in exercises"
+            :key="index">
+
+            <div class="flex flex-col md:w-1/3">
+              <label 
+                for="exercise-name" 
+                class="mb-1 text-sm text-at-light-green">
+                Ćwiczenie
+              </label>
+
+              <input 
+                required 
+                type="text"
+                class="p-2 w-full text-gray-500 focus:outline-none"
+                v-model="item.exercise"
+              />
+            </div>
+
+            <div class="flex flex-col flex-1">
+              <label 
+                for="sets" 
+                class="mb-1 text-sm text-at-light-green">
+                Serie
+              </label>
+
+              <input 
+                required 
+                type="text"
+                class="p-2 w-full text-gray-500 focus:outline-none"
+                v-model="item.sets"
+              />
+            </div>
+
+            <div class="flex flex-col flex-1">
+              <label 
+                for="reps" 
+                class="mb-1 text-sm text-at-light-green">
+                Powtórzenia
+              </label>
+
+              <input 
+                required 
+                type="text"
+                class="p-2 w-full text-gray-500 focus:outline-none"
+                v-model="item.reps"
+              />
+            </div>
+
+            <div class="flex flex-col flex-1">
+              <label 
+                for="weight" 
+                class="mb-1 text-sm text-at-light-green">
+                Ciężar (KG's)
+              </label>
+
+              <input 
+                required 
+                type="text"
+                class="p-2 w-full text-gray-500 focus:outline-none"
+                v-model="item.weight"
+              />
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </div>
