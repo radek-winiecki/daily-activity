@@ -46,6 +46,8 @@
             <option value="strength">Trening Siłowy</option>
             <option value="cardio">Kardio</option>
             <option value="cycling">Jazda Rowerem</option>
+            <option value="stretching">Rozciąganie</option>
+            <option value="swimming">Pływanie</option>
           </select>
         </div>
 
@@ -240,6 +242,177 @@
                 <option value="cross">Rower Crossowy</option>
                 <option value="road">Rower Szosowy</option>
                 <option value="mtb">Rower MTB</option>
+              </select>
+            </div>
+
+            <div class="flex flex-col flex-1">
+              <label 
+                for="distance" 
+                class="mb-1 text-sm text-at-light-green">
+                Dystans
+              </label>
+
+              <input 
+                required 
+                type="text"
+                class="p-2 w-full text-gray-500 focus:outline-none"
+                v-model="item.distance"
+              />
+            </div>
+
+            <div class="flex flex-col flex-1">
+              <label 
+                for="duration" 
+                class="mb-1 text-sm text-at-light-green">
+                Czas Trwania
+              </label>
+
+              <input 
+                required 
+                type="text"
+                class="p-2 w-full text-gray-500 focus:outline-none"
+                v-model="item.duration"
+              />
+            </div>
+
+            <div class="flex flex-col flex-1">
+              <label 
+                for="pulse" 
+                class="mb-1 text-sm text-at-light-green">
+                Tętno (BPM)
+              </label>
+
+              <input 
+                required 
+                type="text"
+                class="p-2 w-full text-gray-500 focus:outline-none"
+                v-model="item.pulse"
+              />
+            </div>
+
+            <img 
+              src="@/assets/images/trash-light-green.png" 
+              class="h-4 w-auto absolute -left-5 cursor-pointer" 
+              alt="trash"
+            />
+          </div>
+
+          <button
+            type="button"
+            class="mt-20 py-2 px-6 rounded-sm self-start text-sm text-white bg-at-light-green duration-200 border-solid
+            border-2 border-transparent hover:border-at-light-green hover:bg-white hover:text-at-light-green"
+          >
+            Dodaj Ćwiczenie!
+          </button>
+        </div>
+
+        <!-- Stretching Training Inputs -->
+        <div v-if="workoutType === 'stretching'" class="flex flex-col gap-y-4">
+          <div 
+            class="flex flex-col gap-x-6 gap-y-2 relative md:flex-row" 
+            v-for="(item, index) in exercises"
+            :key="index">
+
+            <div class="flex flex-col md:w-1/3">
+              <label 
+                for="exercise-name" 
+                class="mb-1 text-sm text-at-light-green">
+                Ćwiczenie
+              </label>
+
+              <input 
+                required 
+                type="text"
+                class="p-2 w-full text-gray-500 focus:outline-none"
+                v-model="item.exercise"
+              />
+            </div>
+
+            <div class="flex flex-col flex-1">
+              <label 
+                for="sets" 
+                class="mb-1 text-sm text-at-light-green">
+                Serie
+              </label>
+
+              <input 
+                required 
+                type="text"
+                class="p-2 w-full text-gray-500 focus:outline-none"
+                v-model="item.sets"
+              />
+            </div>
+
+            <div class="flex flex-col flex-1">
+              <label 
+                for="reps" 
+                class="mb-1 text-sm text-at-light-green">
+                Powtórzenia
+              </label>
+
+              <input 
+                required 
+                type="text"
+                class="p-2 w-full text-gray-500 focus:outline-none"
+                v-model="item.reps"
+              />
+            </div>
+
+            <div class="flex flex-col flex-1">
+              <label 
+                for="weight" 
+                class="mb-1 text-sm text-at-light-green">
+                Ciężar (KG's)
+              </label>
+
+              <input 
+                required 
+                type="text"
+                class="p-2 w-full text-gray-500 focus:outline-none"
+                v-model="item.weight"
+              />
+            </div>
+
+            <img 
+              src="@/assets/images/trash-light-green.png" 
+              class="h-4 w-auto absolute -left-5 cursor-pointer" 
+              alt="trash"
+            />
+          </div>
+
+          <button
+            type="button"
+            class="mt-20 py-2 px-6 rounded-sm self-start text-sm text-white bg-at-light-green duration-200 border-solid
+            border-2 border-transparent hover:border-at-light-green hover:bg-white hover:text-at-light-green"
+          >
+            Dodaj Ćwiczenie!
+          </button>
+        </div>
+
+        <!-- Swimming Training Inputs -->
+        <div v-if="workoutType === 'swimming'" class="flex flex-col gap-y-4">
+          <div 
+            class="flex flex-col gap-x-6 gap-y-2 relative md:flex-row" 
+            v-for="(item, index) in exercises"
+            :key="index">
+
+            <div class="flex flex-col md:w-1/3">
+              <label 
+                for="swimming-type" 
+                class="mb-1 text-sm text-at-light-green">
+                Styl
+              </label>
+              <select 
+                id="swimming-type" 
+                class="p-2 w-full text-gray-500 focus:outline-none" 
+                v-model="item.swimmingType">
+
+                <option value="#">Wybierz Styl</option>
+                <option value="crawl">Kraul</option>
+                <option value="frog">Żabka</option>
+                <option value="back">Grzbietowy</option>
+                <option value="butterfly">Motylkowy</option>
+                <option value="dog">Piesek</option>
               </select>
             </div>
 
