@@ -114,6 +114,12 @@
                 v-model="item.weight"
               />
             </div>
+
+            <img 
+              src="@/assets/images/trash-light-green.png" 
+              class="h-4 w-auto absolute -left-5 cursor-pointer" 
+              alt="trash"
+            />
           </div>
         </div>
       </form>
