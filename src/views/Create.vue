@@ -40,6 +40,7 @@
             id="workout-type" 
             class="p-2 text-grey-500 focus:outline-none" 
             required 
+            @change="workoutChange"
             v-model="workoutType">
 
             <option value="select-workout">Wybierz Trening</option>
@@ -557,10 +558,14 @@ export default {
     // Delete exercise
 
     // Listens for chaging of workout type input
+    const workoutChange = () => {
+      exercises.value = [];
+      addExercise();
+    };
 
     // Create workout
 
-    return { workoutName, workoutType, exercises, statusMsg, errorMsg, addExercise };
+    return { workoutName, workoutType, exercises, statusMsg, errorMsg, addExercise, workoutChange };
   },
 };
 </script>
