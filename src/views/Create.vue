@@ -1,6 +1,10 @@
 <template>
-  <div>
-    <h1>create</h1>
+  <div class="max-w-screen-md mx-auto px-4 py-10">
+    <!-- Status Message -->
+    <div v-if="statusMsg || errorMsg" class="mb-10 p-4 bg-light-grey rounded-md">
+      <p class="text-at-light-green">{{ statusMsg }}</p>
+      <p class="text-red-500">{{ errorMsg }}</p>
+    </div>
   </div>
 </template>
 
