@@ -120,6 +120,7 @@
             </div>
 
             <img 
+              @click="deleteExercise(item.id)"
               src="@/assets/images/trash-light-green.png" 
               class="h-4 w-auto absolute -left-5 cursor-pointer" 
               alt="trash"
@@ -206,6 +207,7 @@
             </div>
 
             <img 
+              @click="deleteExercise(item.id)"
               src="@/assets/images/trash-light-green.png" 
               class="h-4 w-auto absolute -left-5 cursor-pointer" 
               alt="trash"
@@ -294,6 +296,7 @@
             </div>
 
             <img 
+              @click="deleteExercise(item.id)"
               src="@/assets/images/trash-light-green.png" 
               class="h-4 w-auto absolute -left-5 cursor-pointer" 
               alt="trash"
@@ -378,6 +381,7 @@
             </div>
 
             <img 
+              @click="deleteExercise(item.id)"
               src="@/assets/images/trash-light-green.png" 
               class="h-4 w-auto absolute -left-5 cursor-pointer" 
               alt="trash"
@@ -467,6 +471,7 @@
             </div>
 
             <img 
+              @click="deleteExercise(item.id)"
               src="@/assets/images/trash-light-green.png" 
               class="h-4 w-auto absolute -left-5 cursor-pointer" 
               alt="trash"
@@ -556,6 +561,17 @@ export default {
     }
 
     // Delete exercise
+    const deleteExercise = (id) => {
+      if (exercises.value.length > 1) {
+        exercises.value = exercises.value.filter((exercise) => exercise.id !== id);
+        return;
+      }
+
+      errorMsg.value = "Error: Nie można usunąć, należy mieć przynajmniej jedno ćwiczenie!";
+      setTimeout(() => {
+        errorMsg.value = false;
+      }, 5000);
+    };
 
     // Listens for chaging of workout type input
     const workoutChange = () => {
@@ -565,7 +581,7 @@ export default {
 
     // Create workout
 
-    return { workoutName, workoutType, exercises, statusMsg, errorMsg, addExercise, workoutChange };
+    return { workoutName, workoutType, exercises, statusMsg, errorMsg, addExercise, workoutChange, deleteExercise };
   },
 };
 </script>
