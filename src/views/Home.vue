@@ -21,7 +21,6 @@ export default {
         if (error) throw error;
         data.value = workouts;
         dataLoaded.value = true;
-        console.log(data.value);
       }
       catch(error) {
         console.warn(error.message);
@@ -31,7 +30,7 @@ export default {
     // Run data function
     getData();
 
-    return {};
+    return { data, dataLoaded };
   },
 };
 </script>
