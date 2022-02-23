@@ -581,7 +581,16 @@ export default {
 
     // Create workout
 
-    return { workoutName, workoutType, exercises, statusMsg, errorMsg, addExercise, workoutChange, deleteExercise };
+    return { 
+      workoutName, 
+      workoutType, 
+      exercises, 
+      statusMsg, 
+      errorMsg, 
+      addExercise, 
+      workoutChange, 
+      deleteExercise 
+      };
   },
 };
 </script>
