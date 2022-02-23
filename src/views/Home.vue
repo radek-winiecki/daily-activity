@@ -7,11 +7,11 @@
       <router-link
         class="mt-20 py-2 px-6 rounded-sm self-start text-sm text-white bg-at-light-green duration-200 border-solid
                border-2 border-transparent hover:border-at-light-green hover:bg-white hover:text-at-light-green"
-       :to="{ name: 'create' }">Stwórz Trening</router-link>
+       :to="{ name: 'Create' }">Stwórz Trening</router-link>
     </div>
 
     <!-- Data -->
-    <div v-else class="grid grid-col-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div v-else class="grid grid-col-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
       <router-link 
         class="flex flex-col items-center bg-light-grey p-8 shadow-md cursor-pointer"
         :to="{ name: '' }"
@@ -29,7 +29,7 @@
 
         <!-- Strength Img -->
         <img 
-          v-if="workout.workoutType === 'strength'" 
+          v-else-if="workout.workoutType === 'strength'" 
           src="@/assets/images/dumbbell.png" 
           class="h-50 w-auto" 
           alt="dumbbell-light-green"
@@ -37,7 +37,7 @@
 
         <!-- Cycling Img -->
         <img 
-          v-if="workout.workoutType === 'strength'" 
+          v-else-if="workout.workoutType === 'cycling'" 
           src="@/assets/images/cycling.png" 
           class="h-50 w-auto" 
           alt="dumbbell-light-green"
@@ -45,7 +45,7 @@
 
         <!-- Stretching Img -->
         <img 
-          v-if="workout.workoutType === 'strength'" 
+          v-else-if="workout.workoutType === 'stretching'" 
           src="@/assets/images/stretching.png" 
           class="h-50 w-auto" 
           alt="dumbbell-light-green"
@@ -53,11 +53,19 @@
 
         <!-- Swimming Img -->
         <img 
-          v-if="workout.workoutType === 'strength'" 
+          v-else-if="workout.workoutType === 'swimming'" 
           src="@/assets/images/swimming.png" 
           class="h-50 w-auto" 
           alt="dumbbell-light-green"
         />
+
+        <p class="mt-6 py-1 px-3 text-xs text-white bg-at-light-green shadow-md rounded-lg">
+          {{ workout.workoutType }}
+        </p>
+
+        <h1 class="mt-8 mb-2 text-center text-xl text-at-light-green">
+          {{ workout.workoutName }}
+        </h1>
       </router-link>
     </div>
   </div>
