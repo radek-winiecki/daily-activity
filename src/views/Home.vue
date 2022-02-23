@@ -1,6 +1,6 @@
 <template>
   <div v-if="dataLoaded" class="container mt-10 px-4">
-    
+
     <!-- No Data -->
     <div v-if="data.length === 0" class="w-full flex flex-col items-center">
       <h1 class="text-2xl">Jeszcze nic tutaj nie ma...</h1>
@@ -8,6 +8,57 @@
         class="mt-20 py-2 px-6 rounded-sm self-start text-sm text-white bg-at-light-green duration-200 border-solid
                border-2 border-transparent hover:border-at-light-green hover:bg-white hover:text-at-light-green"
        :to="{ name: 'create' }">Stwórz Trening</router-link>
+    </div>
+
+    <!-- Data -->
+    <div v-else class="grid grid-col-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <router-link 
+        class="flex flex-col items-center bg-light-grey p-8 shadow-md cursor-pointer"
+        :to="{ name: '' }"
+        v-for="(workout, index) in data"
+        :key="index"
+        >
+
+        <!-- Cardio Img -->
+        <img 
+          v-if="workout.workoutType === 'cardio'" 
+          src="@/assets/images/running.png"
+          class="h-50 w-auto"
+          alt="running-light-green"
+        />
+
+        <!-- Strength Img -->
+        <img 
+          v-if="workout.workoutType === 'strength'" 
+          src="@/assets/images/dumbbell.png" 
+          class="h-50 w-auto" 
+          alt="dumbbell-light-green"
+        />
+
+        <!-- Cycling Img -->
+        <img 
+          v-if="workout.workoutType === 'strength'" 
+          src="@/assets/images/cycling.png" 
+          class="h-50 w-auto" 
+          alt="dumbbell-light-green"
+        />
+
+        <!-- Stretching Img -->
+        <img 
+          v-if="workout.workoutType === 'strength'" 
+          src="@/assets/images/stretching.png" 
+          class="h-50 w-auto" 
+          alt="dumbbell-light-green"
+        />
+
+        <!-- Swimming Img -->
+        <img 
+          v-if="workout.workoutType === 'strength'" 
+          src="@/assets/images/swimming.png" 
+          class="h-50 w-auto" 
+          alt="dumbbell-light-green"
+        />
+      </router-link>
     </div>
   </div>
 </template>
