@@ -1,5 +1,11 @@
 <template>
-  <div></div>
+  <div class="max-w-screen-sm mx-auto px-4 py-10">
+    <!-- App Message -->
+    <div v-if="statusMsg || errorMsg" class="mb-10 p-4 rounded-md shawod-md bg-light-grey">
+      <p class="text-at-light-green">{{ statusMsg }}</p>
+      <p class="text-red-500">{{ errorMsg }}</p>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -50,7 +56,7 @@ export default {
 
     // Update Workout
 
-    return { statusMsg };
+    return { statusMsg, data, dataLoaded, errorMsg };
   },
 };
 </script>
