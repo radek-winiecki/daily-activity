@@ -9,7 +9,7 @@
     <!-- Create -->
     <div class="p-8 flex items-start bg-light-grey rounded-md shadow-lg">
       <!-- Form -->
-      <form class="flex flex-col gap-y-5 w-full">
+      <form @submit.prevent="createWorkout" class="flex flex-col gap-y-5 w-full">
 
         <h1 class="text-2xl text-at-light-green">Zapisz Trening</h1>
 
@@ -503,6 +503,8 @@
 <script>
 import { ref } from "vue";
 import { uid } from "uid";
+import { supabase } from '../supabase/init';
+
 export default {
   name: "create",
   setup() {
@@ -523,8 +525,8 @@ export default {
           reps: "",
           weight: "",
         });
-
         return;
+
       } else if (workoutType.value === 'cardio') {
         exercises.value.push({
           id: uid(),
@@ -580,6 +582,32 @@ export default {
     };
 
     // Create workout
+    const createWorkout = async () => {
+      try {
+        const { error } = await supabase.from('workouts').insert([
+          {
+            workoutName: workoutName.value,
+            workoutType: workoutType.value,
+            exercises: exercises.value,
+          }
+        ]);
+        if (error) throw error;
+        statusMsg.value = 'Sukces: Stworzono Trening!';
+        workoutName.value = null;
+        workoutType.value = "select-workout";
+        exercises.value = [];
+
+        setTimeout(() => {
+          statusMsg.value = false;
+        }, 5000);
+
+      } catch(error) {
+        errorMsg.value = `Error: ${error.message}`;
+        setTimeout(() => {
+          errorMsg.value = false;
+        }, 5000);
+      }
+    }
 
     return { 
       workoutName, 
@@ -589,7 +617,8 @@ export default {
       errorMsg, 
       addExercise, 
       workoutChange, 
-      deleteExercise 
+      deleteExercise,
+      createWorkout
       };
   },
 };
