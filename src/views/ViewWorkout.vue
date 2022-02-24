@@ -126,6 +126,7 @@
           </div>
           <button 
             v-if="edit"
+            @click="addExercise"
             type="button" 
             class="mt-20 py-2 px-6 rounded-sm self-start text-sm text-white bg-at-light-green duration-200 border-solid
                border-2 border-transparent hover:border-at-light-green hover:bg-white hover:text-at-light-green">
@@ -471,6 +472,7 @@ import { ref, computed } from 'vue';
 import { supabase } from '../supabase/init';
 import { useRoute, useRouter } from 'vue-router';
 import store from "../store/index"
+import { uid } from "uid";
 
 export default {
   name: "view-workout",
@@ -532,12 +534,33 @@ export default {
     }
 
     // Add exercise
+    const addExercise = () => {
+      if (data.value.workoutType === "strength") {
+        data.value.exercises.push({
+          id: uid(),
+          exercise: "",
+          sets: "",
+          reps: "",
+          weight: "",
+        });
+        return;
+      } else if (data.value.workoutType === "cardio") {
+        data.value.exercises.push({
+          id: uid(),
+          cardioType: "",
+          distance: "",
+          duration: "",
+          pace: "",
+        });
+        return;
+      }
+    };
 
     // Delete exercise
 
     // Update Workout
 
-    return { statusMsg, data, dataLoaded, errorMsg, editMode, user, deleteWorkout };
+    return { statusMsg, data, dataLoaded, errorMsg, editMode, user, deleteWorkout, addExercise };
   },
 };
 </script>
