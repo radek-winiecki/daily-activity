@@ -279,6 +279,177 @@
             Dodaj Ćwiczenie
           </button>
         </div>
+
+        <!-- Swimming Training -->
+        <div v-else-if="data.workoutType === 'swimming'" class="flex flex-col gap-y-4 w-full">
+          <div
+            class="flex flex-col gap-x-6 gap-y-2 relative sm:flex-row"
+            v-for="(item, index) in data.exercises"
+            :key="index"
+          >
+            <div class="flex flex-2 flex-col md:w-1/3">
+              <label for="swimmingType" class="mb-1 text-sm text-at-light-green">
+                Styl
+              </label>
+              <select
+                id="swimmingType"
+                v-if="edit"
+                class="p-2 w-full text-gray-500 focus:outline-none"
+                type="text"
+                v-model="item.swimmingType"
+              >
+                <option value="#">Wybierz Styl</option>
+                <option value="crawl">Kraul</option>
+                <option value="frog">Żabka</option>
+                <option value="back">Grzbietowy</option>
+                <option value="butterfly">Motylkowy</option>
+                <option value="dog">Piesek</option>
+              </select>
+              <p v-else>{{ item.swimmingType }}</p>
+            </div>
+            <div class="flex flex-1 flex-col">
+              <label for="distance" class="mb-1 text-sm text-at-light-green">
+                Dystans
+              </label>
+              <input
+                v-if="edit"
+                id="distance"
+                class="p-2 w-full text-gray-500 focus:outline-none"
+                type="text"
+                v-model="item.distance"
+              />
+              <p v-else>{{ item.distance }}</p>
+            </div>
+            <div class="flex flex-1 flex-col">
+              <label for="duration" class="mb-1 text-sm text-at-light-green">
+                Czas Trwania
+              </label>
+              <input
+                v-if="edit"
+                id="duration"
+                class="p-2 w-full text-gray-500 focus:outline-none"
+                type="text"
+                v-model="item.duration"
+              />
+              <p v-else>{{ item.duration }}</p>
+            </div>
+            <div class="flex flex-1 flex-col">
+              <label for="pulse" class="mb-1 text-sm text-at-light-green">
+                Tętno (BPM)
+              </label>
+              <input
+                v-if="edit"
+                id="pulse"
+                class="p-2 w-full text-gray-500 focus:outline-none"
+                type="text"
+                v-model="item.pulse"
+              />
+              <p v-else>{{ item.pulse }}</p>
+            </div>
+            <img
+              @click="deleteExercise(item.id)"
+              v-if="edit"
+              class="absolute h-4 w-auto -left-5 cursor-pointer"
+              src="@/assets/images/trash-light-green.png"
+              alt=""
+            />
+          </div>
+           <button
+            @click="addExercise"
+            v-if="edit"
+            type="button"
+            class="py-2 px-6 rounded-sm self-start text-sm text-white
+            bg-at-light-green duration-200 border-solid border-2 border-transparent
+            hover:border-at-light-green hover:bg-white hover:text-at-light-green"
+          >
+            Dodaj Ćwiczenie
+          </button>
+        </div>
+
+        <!-- Cycling Training -->
+        <div v-else-if="data.workoutType === 'cycling'" class="flex flex-col gap-y-4 w-full">
+          <div
+            class="flex flex-col gap-x-6 gap-y-2 relative sm:flex-row"
+            v-for="(item, index) in data.exercises"
+            :key="index"
+          >
+            <div class="flex flex-2 flex-col md:w-1/3">
+              <label for="cyclingType" class="mb-1 text-sm text-at-light-green">
+                Typ Roweru
+              </label>
+              <select
+                id="cyclingType"
+                v-if="edit"
+                class="p-2 w-full text-gray-500 focus:outline-none"
+                type="text"
+                v-model="item.cyclingType"
+              >
+                <option value="#">Wybierz Typ</option>
+                <option value="city">Rower Miejski</option>
+                <option value="cross">Rower Crossowy</option>
+                <option value="road">Rower Szosowy</option>
+                <option value="mtb">Rower MTB</option>
+              </select>
+              <p v-else>{{ item.cyclingType }}</p>
+            </div>
+            <div class="flex flex-1 flex-col">
+              <label for="distance" class="mb-1 text-sm text-at-light-green">
+                Dystans
+              </label>
+              <input
+                v-if="edit"
+                id="distance"
+                class="p-2 w-full text-gray-500 focus:outline-none"
+                type="text"
+                v-model="item.distance"
+              />
+              <p v-else>{{ item.distance }}</p>
+            </div>
+            <div class="flex flex-1 flex-col">
+              <label for="duration" class="mb-1 text-sm text-at-light-green">
+                Czas Trwania
+              </label>
+              <input
+                v-if="edit"
+                id="duration"
+                class="p-2 w-full text-gray-500 focus:outline-none"
+                type="text"
+                v-model="item.duration"
+              />
+              <p v-else>{{ item.duration }}</p>
+            </div>
+            <div class="flex flex-1 flex-col">
+              <label for="pulse" class="mb-1 text-sm text-at-light-green">
+                Tętno (BPM)
+              </label>
+              <input
+                v-if="edit"
+                id="pulse"
+                class="p-2 w-full text-gray-500 focus:outline-none"
+                type="text"
+                v-model="item.pulse"
+              />
+              <p v-else>{{ item.pulse }}</p>
+            </div>
+            <img
+              @click="deleteExercise(item.id)"
+              v-if="edit"
+              class="absolute h-4 w-auto -left-5 cursor-pointer"
+              src="@/assets/images/trash-light-green.png"
+              alt=""
+            />
+          </div>
+           <button
+            @click="addExercise"
+            v-if="edit"
+            type="button"
+            class="py-2 px-6 rounded-sm self-start text-sm text-white
+            bg-at-light-green duration-200 border-solid border-2 border-transparent
+            hover:border-at-light-green hover:bg-white hover:text-at-light-green"
+          >
+            Dodaj Ćwiczenie
+          </button>
+        </div>
       </div>
     </div>
   </div>
