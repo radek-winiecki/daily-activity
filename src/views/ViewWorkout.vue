@@ -132,6 +132,71 @@
           </button>
         </div>
 
+        <!-- Strength Training -->
+        <div v-else-if="data.workoutType === 'stretching'" class="flex flex-col gap-y-4 w-full">
+          <div class="flex flex-col gap-x-6 gap-y-2 relative sm:flex-row" v-for="(item, index) in data.exercises" :key="index">
+            <div class="flex flex-2 flex-col md:w-1/3">
+            <label for="exercise-name" class="mb-1 text-sm text-at-light-green">Ćwiczenie</label>
+              <input 
+                v-if="edit" 
+                id="exercise-name"
+                class="p-2 w-full text-gray-500 focus:outline-none" 
+                type="text" 
+                v-model="item.exercise"
+              />
+              <p v-else>{{ item.exercise }}</p>
+            </div>
+
+            <div class="flex flex-1 flex-col">
+            <label for="sets" class="mb-1 text-sm text-at-light-green">Serie</label>
+              <input 
+                v-if="edit" 
+                id="sets"
+                class="p-2 w-full text-gray-500 focus:outline-none" 
+                type="text" 
+                v-model="item.sets"
+              />
+              <p v-else>{{ item.sets }}</p>
+            </div>
+
+            <div class="flex flex-1 flex-col">
+            <label for="reps" class="mb-1 text-sm text-at-light-green">Powtórzenia</label>
+              <input 
+                v-if="edit" 
+                id="reps"
+                class="p-2 w-full text-gray-500 focus:outline-none" 
+                type="text" 
+                v-model="item.reps"
+              />
+              <p v-else>{{ item.reps }}</p>
+            </div>
+
+            <div class="flex flex-1 flex-col">
+            <label for="weight" class="mb-1 text-sm text-at-light-green">Ciężar (KG's)</label>
+              <input 
+                v-if="edit" 
+                id="weight"
+                class="p-2 w-full text-gray-500 focus:outline-none" 
+                type="text" 
+                v-model="item.weight"
+              />
+              <p v-else>{{ item.weight }}</p>
+            </div>
+            <img 
+              v-if="edit"
+              class="absolute h-4 w-auto -left-5 cursor-pointer"
+              src="@/assets/images/trash-light-green.png" 
+              alt="trash-light-green"
+            />
+          </div>
+          <button 
+            type="button" 
+            class="mt-20 py-2 px-6 rounded-sm self-start text-sm text-white bg-at-light-green duration-200 border-solid
+               border-2 border-transparent hover:border-at-light-green hover:bg-white hover:text-at-light-green">
+              Dodaj Ćwiczenie
+          </button>
+        </div>
+
         <!-- Cardio Training -->
         <div v-else-if="data.workoutType === 'cardio'" class="flex flex-col gap-y-4 w-full">
           <div
