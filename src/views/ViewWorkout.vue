@@ -119,6 +119,7 @@
             </div>
             <img 
               v-if="edit"
+              @click="deleteExercise(item.id)"
               class="absolute h-4 w-auto -left-5 cursor-pointer"
               src="@/assets/images/trash-light-green.png" 
               alt="trash-light-green"
@@ -186,6 +187,7 @@
             </div>
             <img 
               v-if="edit"
+              @click="deleteExercise(item.id)"
               class="absolute h-4 w-auto -left-5 cursor-pointer"
               src="@/assets/images/trash-light-green.png" 
               alt="trash-light-green"
@@ -193,6 +195,7 @@
           </div>
           <button 
             v-if="edit"
+            @click="addExercise"
             type="button" 
             class="mt-20 py-2 px-6 rounded-sm self-start text-sm text-white bg-at-light-green duration-200 border-solid
                border-2 border-transparent hover:border-at-light-green hover:bg-white hover:text-at-light-green">
@@ -557,10 +560,32 @@ export default {
     };
 
     // Delete exercise
+    const deleteExercise = (id) => {
+      if (data.value.exercises.length > 1) {
+        data.value.exercises = data.value.exercises.filter(
+          (exercise) => exercise.id !== id
+        );
+        return;
+      }
+      errorMsg.value = "Error: Cannot remove, need to at least have one exercise";
+      setTimeout(() => {
+        errorMsg.value = false;
+      }, 5000);
+    };
 
     // Update Workout
 
-    return { statusMsg, data, dataLoaded, errorMsg, editMode, user, deleteWorkout, addExercise };
+    return { 
+      statusMsg, 
+      data, 
+      dataLoaded, 
+      errorMsg, 
+      editMode, 
+      user, 
+      deleteWorkout, 
+      addExercise,
+      deleteExercise
+    };
   },
 };
 </script>
