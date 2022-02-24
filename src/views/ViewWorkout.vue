@@ -18,6 +18,41 @@
             <img class="h-3.5 w-auto" src="@/assets/images/trash-light.png" alt="pencil-light">
           </div>
         </div>
+
+        <img 
+          v-if="data.workoutType === 'cardio'" 
+          class="h-28 w-auto" 
+          src="@/assets/images/running.png" 
+          alt="running"
+        />
+
+        <img 
+          v-else-if="data.workoutType === 'strength'" 
+          class="h-28 w-auto" 
+          src="@/assets/images/dumbbell.png" 
+          alt="dumbbell"
+        />
+
+        <img 
+          v-else-if="data.workoutType === 'stretching'" 
+          class="h-28 w-auto" 
+          src="@/assets/images/stretching.png" 
+          alt="stretching"
+        />
+
+        <img 
+          v-else-if="data.workoutType === 'cycling'" 
+          class="h-28 w-auto" 
+          src="@/assets/images/cycling.png" 
+          alt="cycling"
+        />
+
+        <img 
+          v-else-if="data.workoutType === 'swimming'" 
+          class="h-28 w-auto" 
+          src="@/assets/images/swimming.png" 
+          alt="swimming"
+        />
       </div>
     </div>
   </div>
