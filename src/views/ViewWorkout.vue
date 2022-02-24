@@ -603,6 +603,7 @@ export default {
       data, 
       dataLoaded, 
       errorMsg, 
+      edit,
       editMode, 
       user, 
       deleteWorkout, 
