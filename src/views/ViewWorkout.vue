@@ -53,6 +53,16 @@
           src="@/assets/images/swimming.png" 
           alt="swimming"
         />
+
+        <span class="mt-6 py-1.5 px-5 text-xs text-white bg-at-light-green rounded-lg shadow-md">{{ data.workoutType }}</span>
+
+
+        <div class="w-full mt-6">
+          <input v-if="edit" type="text" v-model="data.workoutName" class="p-2 w-full text-grey-500 focus:outline-none">
+
+          <h1 v-else class="text-at-light-green text-2xl text-center">{{ data.workoutName }}</h1>
+        
+        </div>
       </div>
     </div>
   </div>
