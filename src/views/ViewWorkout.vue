@@ -56,12 +56,74 @@
 
         <span class="mt-6 py-1.5 px-5 text-xs text-white bg-at-light-green rounded-lg shadow-md">{{ data.workoutType }}</span>
 
-
         <div class="w-full mt-6">
           <input v-if="edit" type="text" v-model="data.workoutName" class="p-2 w-full text-grey-500 focus:outline-none">
 
           <h1 v-else class="text-at-light-green text-2xl text-center">{{ data.workoutName }}</h1>
         
+        </div>
+      </div>
+
+      <!-- Exercises -->
+      <div class="mt-10 p-8 rounded-md flex flex-col item-center bg-light-grey shadow-md">
+
+        <!-- Strength Training -->
+        <div v-if="data.workoutType === 'strength'" class="flex flex-col gap-y-4 w-full">
+          <div class="flex flex-col gap-x-6 gap-y-2 relative sm:flex-row" v-for="(item, index) in data.exercises" :key="index">
+            <div class="flex flex-2 flex-col md:w-1/3">
+            <label for="exercise-name" class="mb-1 text-sm text-at-light-green">Ćwiczenie</label>
+              <input 
+                v-if="edit" 
+                id="exercise-name"
+                class="p-2 w-full text-gray-500 focus:outline-none" 
+                type="text" 
+                v-model="item.exercise"
+              />
+              <p v-else>{{ item.exercise }}</p>
+            </div>
+
+            <div class="flex flex-1 flex-col">
+            <label for="sets" class="mb-1 text-sm text-at-light-green">Serie</label>
+              <input 
+                v-if="edit" 
+                id="sets"
+                class="p-2 w-full text-gray-500 focus:outline-none" 
+                type="text" 
+                v-model="item.sets"
+              />
+              <p v-else>{{ item.sets }}</p>
+            </div>
+
+            <div class="flex flex-1 flex-col">
+            <label for="reps" class="mb-1 text-sm text-at-light-green">Powtórzenia</label>
+              <input 
+                v-if="edit" 
+                id="reps"
+                class="p-2 w-full text-gray-500 focus:outline-none" 
+                type="text" 
+                v-model="item.reps"
+              />
+              <p v-else>{{ item.reps }}</p>
+            </div>
+
+            <div class="flex flex-1 flex-col">
+            <label for="weight" class="mb-1 text-sm text-at-light-green">Ciężar (KG's)</label>
+              <input 
+                v-if="edit" 
+                id="weight"
+                class="p-2 w-full text-gray-500 focus:outline-none" 
+                type="text" 
+                v-model="item.weight"
+              />
+              <p v-else>{{ item.weight }}</p>
+            </div>
+            <img 
+              v-if="edit"
+              class="absolute h-4 w-auto -left-5 cursor-pointer"
+              src="@/assets/images/trash-light-green.png" 
+              alt="trash-light-green"
+            />
+          </div>
         </div>
       </div>
     </div>
