@@ -5,6 +5,21 @@
       <p class="text-at-light-green">{{ statusMsg }}</p>
       <p class="text-red-500">{{ errorMsg }}</p>
     </div>
+
+    <div v-if="dataLoaded">
+      <!-- General Workout Info -->
+      <div class="flex flex-col items-center p-8 rounded-md shadow-md bg-light-grey relative">
+        <div v-if="user" class="flex absolute left-2 top-2 gap-x-2">
+          <div @click="editMode" class="h-7 w-7 rounded-full flex justify-center items-center cursor-pointer bg-at-light-green shadow-lg">
+            <img class="h-3.5 w-auto" src="@/assets/images/pencil-light.png" alt="pencil-light">
+          </div>
+
+          <div class="h-7 w-7 rounded-full flex justify-center items-center cursor-pointer bg-at-light-green shadow-lg">
+            <img class="h-3.5 w-auto" src="@/assets/images/trash-light.png" alt="pencil-light">
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
