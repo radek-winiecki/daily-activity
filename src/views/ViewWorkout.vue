@@ -9,9 +9,10 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { supabase } from '../supabase/init';
 import { useRoute } from 'vue-router';
+import store from "../store/index"
 
 export default {
   name: "view-workout",
@@ -22,6 +23,7 @@ export default {
     const errorMsg = ref(null);
     const statusMsg = ref(null);
     const route = useRoute();
+    const user = computed(() => store.state.user);
 
     // Get current Id of route
     const currentId = route.params.workoutId;
@@ -49,6 +51,11 @@ export default {
     // Delete workout
 
     // Edit mode
+    const edit = ref(null);
+
+    const editMode = () => {
+      edit.value = !edit.value;
+    }
 
     // Add exercise
 
@@ -56,7 +63,7 @@ export default {
 
     // Update Workout
 
-    return { statusMsg, data, dataLoaded, errorMsg };
+    return { statusMsg, data, dataLoaded, errorMsg, editMode, user };
   },
 };
 </script>
