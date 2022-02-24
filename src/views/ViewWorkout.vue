@@ -132,7 +132,7 @@
           </button>
         </div>
 
-        <!-- Strength Training -->
+        <!-- Stretching Training -->
         <div v-else-if="data.workoutType === 'stretching'" class="flex flex-col gap-y-4 w-full">
           <div class="flex flex-col gap-x-6 gap-y-2 relative sm:flex-row" v-for="(item, index) in data.exercises" :key="index">
             <div class="flex flex-2 flex-col md:w-1/3">
