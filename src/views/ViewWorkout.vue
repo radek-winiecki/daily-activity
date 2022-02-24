@@ -461,7 +461,8 @@
       <!-- Update -->
       <button 
         v-if="edit"
-        type="submit" 
+        @click="update"
+        type="button" 
         class="mt-10 py-2 px-6 rounded-sm self-start text-sm text-white bg-at-light-green duration-200 border-solid
                border-2 border-transparent hover:border-at-light-green hover:bg-white hover:text-at-light-green">
           Aktualizuj Ćwiczenie
@@ -567,13 +568,35 @@ export default {
         );
         return;
       }
-      errorMsg.value = "Error: Cannot remove, need to at least have one exercise";
+      errorMsg.value = "Error: Nie można usunąć, trzeba mieć przynajmniej jedno ćwiczenie.";
       setTimeout(() => {
         errorMsg.value = false;
       }, 5000);
     };
 
     // Update Workout
+    const update = async () => {
+      try {
+        const { error } = await supabase
+          .from("workouts")
+          .update({
+            workoutName: data.value.workoutName,
+            exercises: data.value.exercises,
+          })
+          .eq("id", currentId);
+        if (error) throw error;
+        edit.value = false;
+        statusMsg.value = "Success: Zaktualizowano trening!";
+        setTimeout(() => {
+          statusMsg.value = false;
+        }, 5000);
+      } catch (error) {
+        errorMsg.value`Error: ${error.message}`;
+        setTimeout(() => {
+          errorMsg.value = false;
+        }, 5000);
+      }
+    };
 
     return { 
       statusMsg, 
@@ -584,7 +607,8 @@ export default {
       user, 
       deleteWorkout, 
       addExercise,
-      deleteExercise
+      deleteExercise,
+      update
     };
   },
 };
