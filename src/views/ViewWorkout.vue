@@ -14,8 +14,8 @@
             <img class="h-3.5 w-auto" src="@/assets/images/pencil-light.png" alt="pencil-light">
           </div>
 
-          <div class="h-7 w-7 rounded-full flex justify-center items-center cursor-pointer bg-at-light-green shadow-lg">
-            <img class="h-3.5 w-auto" src="@/assets/images/trash-light.png" alt="pencil-light">
+          <div @click="deleteWorkout" class="h-7 w-7 rounded-full flex justify-center items-center cursor-pointer bg-at-light-green shadow-lg">
+            <img class="h-3.5 w-auto" src="@/assets/images/trash-light.png" alt="trash-light">
           </div>
         </div>
 
@@ -469,7 +469,7 @@
 <script>
 import { ref, computed } from 'vue';
 import { supabase } from '../supabase/init';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import store from "../store/index"
 
 export default {
@@ -481,6 +481,7 @@ export default {
     const errorMsg = ref(null);
     const statusMsg = ref(null);
     const route = useRoute();
+    const router = useRouter();
     const user = computed(() => store.state.user);
 
     // Get current Id of route
@@ -507,6 +508,21 @@ export default {
     getData();
 
     // Delete workout
+    const deleteWorkout = async () => {
+      try {
+        const { error } = await supabase
+          .from("workouts")
+          .delete()
+          .eq("id", currentId);
+        if (error) throw error;
+        router.push({ name: "Home" });
+      } catch (error) {
+        errorMsg.value = `Error: ${error.message}`;
+        setTimeout(() => {
+          errorMsg.value = false;
+        }, 5000);
+      }
+    };
 
     // Edit mode
     const edit = ref(null);
@@ -521,7 +537,7 @@ export default {
 
     // Update Workout
 
-    return { statusMsg, data, dataLoaded, errorMsg, editMode, user };
+    return { statusMsg, data, dataLoaded, errorMsg, editMode, user, deleteWorkout };
   },
 };
 </script>
