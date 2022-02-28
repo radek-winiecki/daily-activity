@@ -6,7 +6,7 @@
           <h1 class="text-lg">Codzienna Aktywność Fizyczna</h1>
       </div>
       <ul class="flex flex-1 justify-end gap-x-10">
-        <router-link v-if="user" class="cursor-pointer" :to="{ name: 'Weather' }">Pogoda</router-link>
+        <router-link class="cursor-pointer" :to="{ name: 'Weather' }">Pogoda</router-link>
         <router-link class="cursor-pointer" :to="{ name: 'Home' }">Strona główna</router-link>
         <router-link v-if="user" class="cursor-pointer" :to="{ name: 'Create' }">Dodaj</router-link>
         <router-link v-if="!user" class="cursor-pointer" :to="{ name: 'Login' }">Zaloguj się</router-link>

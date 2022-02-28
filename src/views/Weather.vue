@@ -91,9 +91,10 @@ body {
 main {
   height: calc(100vh - 79.2px);
   padding: 25px;
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.25));
 }
 .search-box {
-  width: 45%;
+  width: 40%;
   margin: 0 auto;
   margin-bottom: 30px;
 }
@@ -104,7 +105,7 @@ main {
   padding: 15px;
   
   color: #313131;
-  font-size: 20px;
+  font-size: 16px;
   appearance: none;
   border:none;
   outline: none;

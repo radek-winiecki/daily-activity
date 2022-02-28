@@ -7,7 +7,7 @@
     </div>
 
     <!-- Create -->
-    <div class="p-8 flex items-start bg-light-grey rounded-md shadow-lg">
+    <div class="p-8 flex items-start bg-light-grey rounded-md shadow-xl">
       <!-- Form -->
       <form @submit.prevent="createWorkout" class="flex flex-col gap-y-5 w-full">
 
