@@ -91,7 +91,7 @@ body {
 main {
   height: calc(100vh - 79.2px);
   padding: 25px;
-  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.25));
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05));
 }
 .search-box {
   width: 40%;
@@ -111,13 +111,13 @@ main {
   outline: none;
   background: none;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 0px 16px 0px 16px;
   transition: 0.4s;
 }
 .search-box .search-bar:focus {
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0.85);
   border-radius: 16px 0px 16px 0px;
 }
 .location-box .location {
