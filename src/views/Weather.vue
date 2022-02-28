@@ -89,9 +89,9 @@ body {
   background-image: url('../assets/images/warm-bg.jpg');
 }
 main {
-  height: calc(100vh - 79.2px);
+  margin: 20px 0;
+  height: calc(100vh - 119.2px);
   padding: 25px;
-  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05));
 }
 .search-box {
   width: 40%;
