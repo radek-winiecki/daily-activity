@@ -5,6 +5,7 @@ import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import Create from "../views/Create.vue";
 import ViewWorkout from "../views/ViewWorkout.vue";
+import Weather from "../views/Weather.vue";
 
 const routes = [
   {
@@ -49,6 +50,15 @@ const routes = [
     component: ViewWorkout,
     meta: {
       title: "View Workout",
+      auth: false,
+    },
+  },
+  {
+    path: "/weather",
+    name: "Weather",
+    component: Weather,
+    meta: {
+      title: "Weather",
       auth: false,
     },
   },
