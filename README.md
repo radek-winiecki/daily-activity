@@ -20,8 +20,8 @@ Some screenshots from the project:
 ![screenshot](./src/assets/sshots/home.png)
 
 6. Weather:
-![screenshot](./src/assets/sshots/weather 1.png)
-![screenshot](./src/assets/sshots/weather 2.png)
+![screenshot](./src/assets/sshots/weather1.png)
+![screenshot](./src/assets/sshots/weather2.png)
 
 ## Project setup
 ```
