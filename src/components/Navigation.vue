@@ -5,13 +5,13 @@
           <img class="w-14" src="../assets/images/dumbbell-light.png" alt="dumbbell-light">
           <h1 class="text-lg">Codzienna Aktywność Fizyczna</h1>
       </div>
-      <ul class="flex flex-1 justify-end gap-x-10">
+      <ul class="flex flex-1 justify-end gap-x-5">
         <router-link class="cursor-pointer" :to="{ name: 'Weather' }">Pogoda</router-link>
-        <router-link class="cursor-pointer" :to="{ name: 'Home' }">Strona główna</router-link>
+        <router-link class="cursor-pointer" :to="{ name: 'Home' }">Home</router-link>
         <router-link v-if="user" class="cursor-pointer" :to="{ name: 'Create' }">Dodaj</router-link>
         <router-link v-if="user" class="cursor-pointer" :to="{ name: 'Parameters' }">Parametry</router-link>
-        <router-link v-if="!user" class="cursor-pointer" :to="{ name: 'Login' }">Zaloguj się</router-link>
-        <li v-if="user" @click="logout" class="cursor-pointer">Wyloguj się</li>
+        <router-link v-if="!user" class="cursor-pointer" :to="{ name: 'Login' }">Login</router-link>
+        <li v-if="user" @click="logout" class="cursor-pointer">Logout</li>
       </ul>
     </nav>
   </header>

@@ -100,7 +100,7 @@ main {
 }
 .search-box .search-bar {
   display: block;
-  width: 100%;
+  width: 15em;
   margin: 0 auto;
   padding: 15px;
   
