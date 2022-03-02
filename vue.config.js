@@ -72,12 +72,12 @@ module.exports = {
       
               // OPTIONAL: defaults to including everything
               // can be a string, a RegExp, or an array of strings and RegExps
-              include: [/\.js$/, /\.css$/, /\.map$/, /\.eot$/, /\.ttf$/, /\.woff$/, /\.woff2$/],
+              include: [/\.js$/, /\.css$/, /\.png$/, /\.jpg$/, /\.map$/, /\.eot$/, /\.ttf$/, /\.woff$/, /\.woff2$/],
       
               // OPTIONAL: defaults to excluding nothing
               // can be a string, a RegExp, or an array of strings and RegExps
               // if a file matches both include and exclude, exclude takes precedence
-              exclude: [/\.png$/, /\.html$/],
+              exclude: [/\.html$/],
       
               // yazl Options
       
